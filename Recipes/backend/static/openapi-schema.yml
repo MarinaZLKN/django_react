@@ -1,0 +1,158 @@
+openapi: 3.0.3
+info:
+  title: Recipe Page
+  version: 0.0.1
+servers:
+  - url: http://127.0.0.1:8000/api/recipelist/
+    description: Recipe List
+  - url: http://127.0.0.1:8000/api/categoryelist/
+    description: Category List
+paths:
+  /recipes:
+    get:
+      summary: Получаем рецепты
+      tags:
+        - Recipes
+      operationId: getAllRecipes
+      responses:
+        '200':
+          description: succsessful response
+          content:
+            application/json:
+              schema:
+               type: array
+               items:
+                 $ref: '#/components/schemas/Recipes'
+        'default':
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /recipe/{recipe_id}:
+    get:
+      summary: Получаем рецепт
+      tags:
+        - Recipes
+      operationId: getRecipeById
+      parameters:
+          - name: recipe_id
+            in: path
+            required: true
+            description: Идентификатор рецепта
+            schema:
+              type: string
+      responses:
+        '200':
+          description: succsessful response
+          content:
+            application/json:
+              schema:
+               type: array
+               items:
+                 $ref: '#/components/schemas/Recipe'
+        'default':
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /categories:
+    get:
+      summary: Получаем категории
+      tags:
+        - Categories
+      operationId: getAllCategories
+      responses:
+        '200':
+          description: successful category response
+          content:
+            application/json:
+              schema:
+               type: array
+               items:
+                 $ref: '#/components/schemas/Category'
+        'default':
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /category/{category_id}:
+    get:
+      summary: Получаем категорию
+      tags:
+        - Categories
+      operationId: getCategoryById
+      parameters:
+          - name: category_id
+            in: path
+            required: true
+            description: Идентификатор категории
+            schema:
+              type: string
+      responses:
+        '200':
+          description: succsessful response
+          content:
+            application/json:
+              schema:
+               type: array
+               items:
+                 $ref: '#/components/schemas/Category'
+        'default':
+          description: error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    Recipe:
+      type: object
+      required:
+        - id
+        - title
+        - description
+        - category
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 1
+        title:
+          type: string
+          example: Название блюда
+        description:
+          type: string
+          example: описание
+        category:
+          type: string
+          example: Lunch
+    Recipes:
+      type: array
+      items:
+          $ref: '#/components/schemas/Recipe'
+    Category:
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          example: Lunch
+    Categories:
+      type: array
+      items:
+        $ref: '#/components/schemas/Category'
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
