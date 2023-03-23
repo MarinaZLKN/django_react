@@ -29,6 +29,9 @@ const CategoryList = () => {
                   <h1>
                     <div key={category.id}>
                       {category.name}
+                      <div className="pic">
+                        {category.image}
+                      </div>
                     </div>
                   </h1>
 
