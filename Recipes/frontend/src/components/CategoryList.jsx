@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import './CategoryList.css'
+import './CategoryList.css';
+const pic = 'img/image.jpg'
+const url = 'http://127.0.0.1:8000/api/categorylist/';
 
-const url = 'http://127.0.0.1:8000/api/categorylist/'
 const CategoryList = () => {
 
     const [data, setData] = useState(null);
@@ -30,7 +31,7 @@ const CategoryList = () => {
                     <div key={category.id}>
                       {category.name}
                       <div className="pic">
-                        {category.image}
+                        <img className="image" src={pic}/>
                       </div>
                     </div>
                   </h1>
