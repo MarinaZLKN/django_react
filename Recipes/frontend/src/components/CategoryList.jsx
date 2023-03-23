@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import './CategoryList.css'
+
 const url = 'http://127.0.0.1:8000/api/categorylist/'
 const CategoryList = () => {
 
@@ -19,11 +21,11 @@ const CategoryList = () => {
       console.log(data)
 
       return (
-        <ul>
+        <div className="container">
           {data &&
             data.map((category) => {
               return (
-                <div className="container" key={category.id}>
+                <div  key={category.id}>
                   <h1>
                     <div key={category.id}>
                       {category.name}
@@ -33,7 +35,7 @@ const CategoryList = () => {
                 </div>
               );
             })}
-        </ul>
+        </div>
       );
 };
 
