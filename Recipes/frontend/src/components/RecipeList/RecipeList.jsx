@@ -26,11 +26,11 @@ const RecipeList = () => {
         data.map((recipe) => {
           return (
             <div className="container" key={recipe.id}>
-              <h1>
+              <h2>
                 <div key={recipe.category}>
                   {recipe.title}
                 </div>
-              </h1>
+              </h2>
               <h3>{recipe.description}</h3>
 
             </div>

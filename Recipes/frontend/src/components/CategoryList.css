@@ -1,12 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
 .container {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.image {
+    padding-top: 10px;
+    width: 1100px;
+}
+
+.category-list{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-left: 40px;
     padding-right: 40px;
+    padding-bottom: 20px;
 }
 
-.image {
-    width: 300px;
-    height: 200px ;
+
+.welcome-text label{
+    font-size: 20px;
 }

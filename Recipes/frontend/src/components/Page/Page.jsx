@@ -1,12 +1,14 @@
 import React from 'react';
-import './Page.css'
 import CategoryList from "../CategoryList";
-import RecipeList from "../RecipeList/RecipeList";
+
+import './Page.css'
+
+
 function Page() {
   return (
     <div className="page">
         <div className="content">
-             <CategoryList/>
+            <CategoryList/>
         </div>
     </div>
   );
