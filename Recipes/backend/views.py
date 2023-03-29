@@ -20,11 +20,10 @@ class CategoryAPIView(viewsets.ModelViewSet):
 
 class CategoryDetailView(viewsets.ModelViewSet):
 
-    queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
 
     def get_queryset(self):
-        recipes = Recipe.objects.filter(category=self.kwargs["pk"])
+        recipes = Recipe.objects.filter(category=self.kwargs["id"])
         return recipes
 
 

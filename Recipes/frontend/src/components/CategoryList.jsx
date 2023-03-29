@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import './CategoryList.css';
-const pic = 'img/banner.jpg.webp'
+import {Link} from "react-router-dom";
+
 const url = 'http://127.0.0.1:8000/api/categorylist/';
-const picture = 'picture';
 
 const CategoryList = () => {
 
@@ -20,26 +20,20 @@ const CategoryList = () => {
         };
         fetchData();
       }, []);
-      console.log(data)
 
       return (
         <div className="container">
-          <div className="pic">
-            <img className="image" alt={picture} src={pic}/>
-          </div >
+
           <div className="category-list">
               {data &&
                 data.map((category) => {
                   return (
                     <div  key={category.id}>
                       <h1>
-                        <div key={category.id}>
-                          {category.name}
-                          {/*<div className="pic">*/}
-                          {/*  <img className="image" alt={picture} src={pic}/>*/}
-                          {/*</div>*/}
-                    </div>
-                  </h1>
+                        <div>
+                            <Link to={`/api/recipelist/${category.id}`}>{category.name}</Link>
+                        </div>
+                        </h1>
                     </div>
               );
             })}
@@ -61,3 +55,4 @@ const CategoryList = () => {
 };
 
 export default CategoryList;
+

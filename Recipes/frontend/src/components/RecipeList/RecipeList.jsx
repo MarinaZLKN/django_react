@@ -1,24 +1,24 @@
 
 import React, { useState, useEffect } from "react";
-const url = 'http://127.0.0.1:8000/api/recipelist/'
+import {useParams} from "react-router";
+import axios from 'axios';
 
 const RecipeList = () => {
-  const [data, setData] = useState(null);
+    const params = useParams();
+    const API_URL = 'http://127.0.0.1:8000/api';
+    const [data, setData] = useState(null);
 
-  useEffect(() => {
+   useEffect(() => {
     const fetchData = () => {
-      fetch(url)
+      axios.get(`${API_URL}/recipelist/${params.id}`)
         .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          setData(data);
+            console.log("Hello from recipe")
+            console.log(response.data.results)
+          setData(response.data.results);
         });
     };
     fetchData();
-  }, []);
-
-  console.log(data)
+  }, [params.id]);
 
   return (
     <ul>

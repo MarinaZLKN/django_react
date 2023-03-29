@@ -5,7 +5,7 @@ info:
 servers:
   - url: http://127.0.0.1:8000/api/recipelist/
     description: Recipe List
-  - url: http://127.0.0.1:8000/api/categoryelist/
+  - url: http://127.0.0.1:8000/api/categorylist/
     description: Category List
 paths:
   /recipes:
