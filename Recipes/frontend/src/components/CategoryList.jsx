@@ -23,7 +23,6 @@ const CategoryList = () => {
 
       return (
         <div className="container">
-
           <div className="category-list">
               {data &&
                 data.map((category) => {
@@ -31,7 +30,7 @@ const CategoryList = () => {
                     <div  key={category.id}>
                       <h1>
                         <div>
-                            <Link to={`/api/recipelist/${category.id}`}>{category.name}</Link>
+                            <Link to={`/category/${category.id}`}>{category.name}</Link>
                         </div>
                         </h1>
                     </div>
@@ -55,4 +54,3 @@ const CategoryList = () => {
 };
 
 export default CategoryList;
-

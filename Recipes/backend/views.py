@@ -3,14 +3,12 @@ from .models import Recipe, Category
 from .serializers import RecipeSerializer, CategorySerializer
 
 
-class RecipeAPIView(viewsets.ModelViewSet):
-    queryset = Recipe.objects.all()
-    serializer_class = RecipeSerializer
-
-
 class RecipeDetailView(viewsets.ModelViewSet):
-    queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
+
+    def get_queryset(self):
+        recipe = Recipe.objects.filter(id=self.kwargs["pk"])
+        return recipe
 
 
 class CategoryAPIView(viewsets.ModelViewSet):
@@ -23,7 +21,7 @@ class CategoryDetailView(viewsets.ModelViewSet):
     serializer_class = RecipeSerializer
 
     def get_queryset(self):
-        recipes = Recipe.objects.filter(category=self.kwargs["id"])
+        recipes = Recipe.objects.filter(category=self.kwargs["category_id"])
         return recipes
 
 

@@ -2,23 +2,21 @@
 import React, { useState, useEffect } from "react";
 import {useParams} from "react-router";
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 const RecipeList = () => {
     const params = useParams();
-    const API_URL = 'http://127.0.0.1:8000/api';
     const [data, setData] = useState(null);
 
    useEffect(() => {
     const fetchData = () => {
-      axios.get(`${API_URL}/recipelist/${params.id}`)
+      axios.get(`http://127.0.0.1:8000/api/category/${params.category_id}/recipelist`)
         .then((response) => {
-            console.log("Hello from recipe")
-            console.log(response.data.results)
-          setData(response.data.results);
+          setData(response.data);
         });
     };
     fetchData();
-  }, [params.id]);
+  }, [params.category_id]);
 
   return (
     <ul>
@@ -28,11 +26,10 @@ const RecipeList = () => {
             <div className="container" key={recipe.id}>
               <h2>
                 <div key={recipe.category}>
-                  {recipe.title}
+                  <Link to={`/recipe/${recipe.id}`}>{recipe.title}</Link>
                 </div>
               </h2>
               <h3>{recipe.description}</h3>
-
             </div>
           );
         })}
