@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import {useParams} from "react-router";
 import axios from 'axios';
 import {Link} from "react-router-dom";
+import './ReccipeList.css'
 
 const RecipeList = () => {
     const params = useParams();
@@ -19,21 +20,22 @@ const RecipeList = () => {
   }, [params.category_id]);
 
   return (
-    <ul>
-      {data &&
-        data.map((recipe) => {
-          return (
-            <div className="container" key={recipe.id}>
-              <h2>
-                <div key={recipe.category}>
-                  <Link to={`/recipe/${recipe.id}`}>{recipe.title}</Link>
-                </div>
-              </h2>
-              <h3>{recipe.description}</h3>
-            </div>
-          );
-        })}
-    </ul>
+    <div className="recipe-title">
+        <label>Список рецептов:</label>
+        <ul>
+            {data && data.map((recipe) => {
+                return (
+                    <div className="container" key={recipe.id}>
+                        <h2>
+                            <div key={recipe.category}>
+                                <Link to={`/recipe/${recipe.id}`}>{recipe.title}</Link>
+                            </div>
+                        </h2>
+                    </div>
+                    );
+            })}
+        </ul>
+    </div>
   );
 };
 

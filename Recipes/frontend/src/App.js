@@ -13,11 +13,9 @@ function App() {
                     <div className="page">
                         <div className="content">
                     <nav>
-                        <ul>
-                            <li>
-                                <Link to="/">Home</Link>
-                            </li>
-                        </ul>
+                        <div className="button">
+                            <Link to="/"><label>Home</label></Link>
+                        </div>
                     </nav>
                     <Routes>
                         <Route path="/" element = {<Home />} />

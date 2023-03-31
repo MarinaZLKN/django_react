@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+
+
+.recipe-title {
+    padding: 12px 25px;
+}
+.recipe-title label{
+    font-size: 30px;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    text-decoration: underline;
+}
+
+
+
