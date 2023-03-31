@@ -1,7 +1,7 @@
 import React from "react";
 import './App.css';
 import Header from "./components/Header/Header";
-import Home from'./components/Home'
+import Home from './components/Home'
 import RecipeList from "./components/RecipeList/RecipeList";
 import Recipe from "./components/Recipe/Recipe";
 import { Route, Routes, Link} from "react-router-dom";
