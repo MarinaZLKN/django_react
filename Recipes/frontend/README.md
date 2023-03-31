@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+Задание:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Создайте фуллстек-приложение с рецептами блюд, которое будет использовать Django Rest Framework, автодокументацию OpenAPI+Swagger и react-router.
 
-## Available Scripts
+- Бэкенд часть создана стандартной командой django-admin startproject, фронтэнд часть - npx create-react-app
 
-In the project directory, you can run:
+- Бэкенд часть запускаем командой - python manage.py runserver
+- Фронтед - npm start
 
-### `npm start`
+При запуске приложение отображается на http://localhost:3000
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Давать пользователю возможность создавать рецепты не нужно: достаточно распределить их по категориям и отображать в клиенте и в API.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Где отображать документацию API — решать вам.
 
-### `npm test`
+- Документация API отображается на бэкенде, по адресам:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- swagger - http://127.0.0.1:8000/api/swagger-ui/
+- DRF - http://127.0.0.1:8000/api/categorylist/
+                                recipe/<int:pk>/
+                                category/<int:category_id>/recipelist/
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+У каждого блюда и каждой категории должна быть своя страница: с главной страницы можно перейти на любую из категорий, а из категории — на любой рецепт этой категории.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- По сути создано 3 перехода: на главной странице отображаются категории из DRF, при клике отображается перечень рецптов к относящейся категории и при клике на рецепт, переходим на сам рецепт.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Очень хотела добавить и вывод изображений, но возникло много вопросов, на которые ментор не смогла дать ответов. В самом задании вывод изображений не указан, поэтому если успею добавить до провекри, будет классно, если нет, то добавлю позже.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Благодарю за внимание и ваш труд!
