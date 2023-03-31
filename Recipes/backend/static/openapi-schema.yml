@@ -56,12 +56,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /categorylist/{category_id}/recipelist/:
+  /category/{category_id}/recipelist/:
     get:
       summary: Получаем категорию
       tags:
-        - Categories
-      operationId: getCategoryById
+        - Recipes
+      operationId: getRecipesByCategoryId
       parameters:
           - name: category_id
             in: path
@@ -119,10 +119,6 @@ components:
         name:
           type: string
           example: Lunch
-    Categories:
-      type: array
-      items:
-        $ref: '#/components/schemas/Category'
     Error:
       type: object
       required:

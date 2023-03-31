@@ -4,7 +4,7 @@ function Header() {
   return (
     <div className="Header">
       <div className="wrapper">
-          <label className="text">Recipe App</label>
+          <label className="text">Recipe App F4 by Marina Zilkina</label>
       </div>
 
     </div>
